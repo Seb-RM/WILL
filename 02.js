@@ -10,7 +10,12 @@ function stringMasLarga(strings) {
   // Ej:
   // stringMasLarga(['hi', 'hello', 'ni hao', 'guten tag']); debe retornar 'guten tag'
   // stringMasLarga(['JavaScript', 'HTML', 'CSS']); debe retornar 'JavaScript'
-
+  var cuerdaMayor = {};
+  strings.sort(function(a,b){
+      return a.length - b.length;
+  });
+  cuerdaMayor = strings[strings.length-1]
+  return cuerdaMayor;
   // Tu código aca
 }
 

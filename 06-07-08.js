@@ -9,16 +9,24 @@ function crearClasePersona() {
     constructor(nombre, edad, hobbies, amigos) {
       // El constructor de la clase Persona recibe nombre (string), edad (integer), hobbies (array de strings), amigos (array de objetos)
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
-
+        this.nombre = nombre;
+        this.edad = edad;
+        this.hobbies = hobbies;
+        this.amigos =amigos;
       // Tu código aca:
-
     }
 
     addFriend(nombre, edad) {
       // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
       // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
       // No debe retornar nada.
-
+      var amigos = this.amigos;
+      var amigo = {
+          nombre: nombre,
+          edad: edad
+      };
+      amigos.push(amigo);
+      return amigos;
       // Tu código aca:
 
     }
@@ -26,7 +34,9 @@ function crearClasePersona() {
     addHobby(hobby) {
       // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
       // No debe retornar nada.
-
+      var hobbies = this.hobbies;
+      hobbies.push(hobby);
+      return hobbies;
       // Tu código aca:
 
     }
@@ -36,7 +46,11 @@ function crearClasePersona() {
       // Ej:
       // Suponiendo que la persona tiene estos amigos: [{nombre: 'martin', edad: 31},{nombre: 'toni', edad: 33}]
       // persona.getFriends() debería devolver ['martin', 'toni']
-
+      var nombreAmigos = [];
+      this.amigos.forEach(elemento =>{
+        nombreAmigos.push(elemento.nombre);
+      });
+      return nombreAmigos;
       // Tu código aca:
 
     }
@@ -45,7 +59,7 @@ function crearClasePersona() {
       // El método 'getHobbies' debe retornar un arreglo con los hobbies de la persona
       // Ej:
       // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
-
+      return this.hobbies
       // Tu código aca:
 
     }
@@ -64,12 +78,19 @@ function crearClasePersona() {
       //   }]
       // }
       // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
-
+      var edadPromedio = 0;
+      var sumaEdad = 0;
+      var contador = 0;
+      this.amigos.forEach(function(objeto) {
+          console.log(objeto.edad);
+          sumaEdad = sumaEdad + objeto.edad;
+          contador = contador +1;
+      });
+      edadPromedio = sumaEdad/contador;
+      return edadPromedio;
       // Tu código aca:
-
     }
   };
-
   return Persona;
 }
 

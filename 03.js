@@ -12,9 +12,15 @@ function buscarAmigo(amigos, nombre) {
   // Ej:
   //  var amigos = [{ nombre: 'toni', edad: 33 } , { nombre: 'Emi', edad: 25 }];
   //  buscarAmigo(amigos, 'toni') debe devolver { nombre: 'toni', edad: 33 };
-
+  var nuevoArreglo = null;
+    amigos.forEach(elemento => {
+        var verificador = elemento.nombre;
+        if(verificador === nombre){
+            nuevoArreglo = elemento;
+        }
+    });
+    return nuevoArreglo;
   // Tu código aca:
-  
 }
 
 // No modifiques nada debajo de esta linea //
